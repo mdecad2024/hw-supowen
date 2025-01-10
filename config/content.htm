@@ -409,7 +409,38 @@ openByGet();
 <p>零件下載:<a href="/downloads/41223252_w16_exam1-1.7z">1-1</a>、<a href="/downloads/41223252_w16_exam1-2.7z">1-2</a></p>
 <p>組合:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cuDYQjsqOk0?si=E5uXd9gXS4YVX8B7" title="YouTube video player" width="560"></iframe></p>
+<p>下載:<a href="/downloads/41223252_w16_exam1.7z">w16_exam1.7z</a></p><h1>HW3</h1>
+<p>Homework 3 (20%):</p>
+<p style="padding-left: 30px;">建立 <a href="https://mde.tw/cad2024/content/BonW.html">Balance on Wheels</a> 控制系統設計模擬場景</p>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecycu/Balance_On_Wheels">https://github.com/mdecycu/Balance_On_Wheels</a></p>
+<p style="padding-left: 30px;"><img alt="" height="217" src="https://mde.tw/cad2024/images/balance_on_wheels.png" width="400"/></p>
+<p style="padding-left: 30px;"><img alt="" height="217" src="https://mde.tw/cad2024/images/Balance_on_wheels_scene.png" width="400"/></p>
+<p style="padding-left: 30px;"><a href="https://mde.tw/cad2024/downloads/Balance_on_wheels_nx2312.7z">Balance_on_wheels_nx2312.7z</a></p>
+<p style="padding-left: 30px;"><a href="https://mde.tw/cad2024/downloads/Balance_on_Wheel_scene.7z">Balance_on_Wheel_scene.7z</a></p>
+<h2>HW3_Exam</h2>
+<p>與 HW3 內容相近的模擬場景題目, 隨堂進行考試.</p>
+<p>建立模擬場景操作過程影片如下:</p>
+<p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
+<p style="padding-left: 30px;">所完成的模擬場景與控制程式檔案下載</p>
+<hr/>
+<p>利用 CoppeliaSim 建立 <a href="https://mde.tw/cad2024/content/BonW.html">Balance on Wheels</a> 控制系統設計模擬場景的操作過程與說明影片如下:</p>
+<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業三</p>
+<p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
+<p style="padding-left: 30px;">所完成的場景與控制程式檔案下載</p>
+<p>HW3 執行心得:</p>
+<p style="padding-left: 30px;">......</p>
+<p>HW3 自評分數:</p>
+<p style="padding-left: 30px;">完成上述流程後, 請將 HW3 自評分數輸入 cad2024 自評表單中.</p>
+<h3>w16 part2</h3>
 <p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/s5IvdCFrsuM?si=OyOFQLnr1Fnz0asI" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/V48pY_Omk6s?si=6oR6LkdC7JhJfjS1" title="YouTube video player" width="560"></iframe></p>
+<p>零件下載:<a href="/downloads/w16_2-1.7z">2-1</a>、<a href="/downloads/w16_2-2.7z">2-2</a></p>
+<p></p>
+<p>組合:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LF9JrW_sZSE?si=ncBG4q8m6gn_zS02" title="YouTube video player" width="560"></iframe></p>
+<p><span>零件下載:<a href="/downloads/41223252_w16_exam2.7z">41223252_w16_exam2.7z</a></span></p>
 <script src="/static/jsc3d.js" type="text/javascript"></script>
 <div id="models"><canvas height="350" id="cv1" style="border: 1px solid;" width="350"></canvas> <canvas height="350" id="cv2" style="border: 1px solid;" width="350"></canvas> <!-- 可以添加更多的 canvas --></div>
 <div style="width: 600px; height: 55px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/> Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
@@ -466,13 +497,13 @@ function openByUrl(){
     opt.SceneUrl = url;
     // 可以添加更多的 STL URL
     readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
-
+    readSTLfile(opt, 'cv2'); // 第二個 canvas
 }
 
 function openByGet(){
     var urls = [
-        "https://s104.cycu.org/~41223252/41223252_w16_exam1.stl",
-   
+        "https://s104.cycu.org/~41223252/w16_Bobine-Batteur.stl",
+        "https://s104.cycu.org/~41223252/41223252_w16_exam2.stl"
     ];
     var opt = getOptions();
     urls.forEach((url, index) => {
@@ -482,39 +513,7 @@ function openByGet(){
 }
 
 openByGet();
-</script>
-<p>下載:<a href="/downloads/41223252_w16_exam1.7z">w16_exam1.7z</a></p><h1>HW3</h1>
-<p>Homework 3 (20%):</p>
-<p style="padding-left: 30px;">建立 <a href="https://mde.tw/cad2024/content/BonW.html">Balance on Wheels</a> 控制系統設計模擬場景</p>
-<p style="padding-left: 30px;"><a href="https://github.com/mdecycu/Balance_On_Wheels">https://github.com/mdecycu/Balance_On_Wheels</a></p>
-<p style="padding-left: 30px;"><img alt="" height="217" src="https://mde.tw/cad2024/images/balance_on_wheels.png" width="400"/></p>
-<p style="padding-left: 30px;"><img alt="" height="217" src="https://mde.tw/cad2024/images/Balance_on_wheels_scene.png" width="400"/></p>
-<p style="padding-left: 30px;"><a href="https://mde.tw/cad2024/downloads/Balance_on_wheels_nx2312.7z">Balance_on_wheels_nx2312.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://mde.tw/cad2024/downloads/Balance_on_Wheel_scene.7z">Balance_on_Wheel_scene.7z</a></p>
-<h2>HW3_Exam</h2>
-<p>與 HW3 內容相近的模擬場景題目, 隨堂進行考試.</p>
-<p>建立模擬場景操作過程影片如下:</p>
-<p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
-<p style="padding-left: 30px;">所完成的模擬場景與控制程式檔案下載</p>
-<hr/>
-<p>利用 CoppeliaSim 建立 <a href="https://mde.tw/cad2024/content/BonW.html">Balance on Wheels</a> 控制系統設計模擬場景的操作過程與說明影片如下:</p>
-<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業三</p>
-<p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
-<p style="padding-left: 30px;">所完成的場景與控制程式檔案下載</p>
-<p>HW3 執行心得:</p>
-<p style="padding-left: 30px;">......</p>
-<p>HW3 自評分數:</p>
-<p style="padding-left: 30px;">完成上述流程後, 請將 HW3 自評分數輸入 cad2024 自評表單中.</p>
-<h3>w16 part2</h3>
-<p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/s5IvdCFrsuM?si=OyOFQLnr1Fnz0asI" title="YouTube video player" width="560"></iframe></p>
-<p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/V48pY_Omk6s?si=6oR6LkdC7JhJfjS1" title="YouTube video player" width="560"></iframe></p>
-<p>零件下載:<a href="/downloads/w16_2-1.7z">2-1</a>、<a href="/downloads/w16_2-2.7z">2-2</a></p>
-<p></p>
-<p>組合:</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LF9JrW_sZSE?si=ncBG4q8m6gn_zS02" title="YouTube video player" width="560"></iframe></p>
-<p><span>零件下載:<a href="/downloads/41223252_w16_exam2.7z">41223252_w16_exam2.7z</a></span></p><h1>HW4</h1>
+</script><h1>HW4</h1>
 <p>Homework 4 (20%):</p>
 <p style="padding-left: 30px;">建立 <a href="https://mde.tw/cad2024/content/Quadruped.html">Dingo 機器狗</a>控制系統設計模擬場景</p>
 <p style="padding-left: 30px;"><a href="https://github.com/mdecycu/DingoQuadruped">https://github.com/mdecycu/DingoQuadruped</a></p>
