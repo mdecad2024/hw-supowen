@@ -18,193 +18,8 @@
 <h1>Attendance</h1>
 <p>出席 (10%) - 自行舉證評分</p>
 <p>自行利用 Github commits 提交記錄評分.</p>
-<h1>HW1</h1>
-<p>Homework 1 (10%):</p>
-<p style="padding-left: 30px;">利用 Solvespace 與 NX2312 建立 <a href="https://mde.tw/cad2024/content/Parts.html">Parts</a> 頁面中的零件</p>
-<p style="padding-left: 30px;">其他<a href="http://229.cycu.org/part_modeling_projects.pdf">零件模擬練習</a></p>
-<hr/>
-<p>利用 Solvespace 繪製列表中零件的操作過程與說明影片如下:</p>
-<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之一</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4fcy9wuJNrA?si=6_FYK2ohnhGrvVHJ" title="YouTube video player" width="560"></iframe></p>
-<p><img alt="" height="315" src="/images/螢幕擷取畫面 2024-10-09 223251.png" width="536"/></p>
-<p style="padding-left: 30px;">所完成的零件檔案下載:<a href="/downloads/hw1作業1-1零件檔.7z">點這裡</a></p>
-<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之二</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Mr26WYJzk7s?si=4DzdM_9XD1mV6iqv" title="YouTube video player" width="560"></iframe></p>
-<p style="padding-left: 30px;">截圖畫面:</p>
-<p style="padding-left: 30px;"><img alt="" height="313" src="/images/螢幕擷取畫面 2024-10-23 012547.png" width="395"/></p>
-<p style="padding-left: 30px;">所完成的零件檔案下載:<a href="/downloads/作業2.7z">點這裡</a></p>
-<script src="/static/jsc3d.js" type="text/javascript"></script>
-<div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas> <!-- 可以添加更多的 canvas --></div>
-<div style="width: 600px; height: 55px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/> Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
-<option>Flat</option>
-<option>Point</option>
-<option>Wireframe</option>
-<option>Smooth</option>
-</select>Definition:<select id="defini" onchange="changeOption('Definition',this.value)">
-<option>Standard</option>
-<option>low</option>
-<option>high</option>
-</select></div>
-<script type="text/javascript">
-var viewers = [];
-
-function getOptions(){
-    var mc = document.getElementById("mdlClr").value;
-    var bc1 = document.getElementById("bckClr1").value;
-    var bc2 = document.getElementById("bckClr2").value;
-    var ren = document.getElementById("render").value;
-    var def = document.getElementById("defini").value;
-    return {ModelColor: mc, BackgroundColor1: bc1, BackgroundColor2: bc2, RenderMode: ren, Definition: def};
-}
-
-function readSTLfile(opt, canvasId){
-    var canvas = document.getElementById(canvasId);
-    var viewer = new JSC3D.Viewer(canvas);
-    viewer.setParameter('SceneUrl', opt.SceneUrl);
-    viewer.setParameter('InitRotationX', 0);
-    viewer.setParameter('InitRotationY', 0);
-    viewer.setParameter('InitRotationZ', 0);
-    viewer.setParameter('ModelColor', opt.ModelColor);
-    viewer.setParameter('BackgroundColor1', opt.BackgroundColor1);
-    viewer.setParameter('BackgroundColor2', opt.BackgroundColor2);
-    viewer.setParameter('RenderMode', opt.RenderMode);
-    viewer.setParameter('Definition', opt.Definition);
-    viewer.init();
-    viewer.update();
-    viewers.push(viewer); // 保存 viewer 實例
-}
-
-function changeOption(strOpt,strValue){
-    console.log("change " + strOpt + " to " + strValue);
-    viewers.forEach(viewer => {
-        viewer.setParameter(strOpt, strValue);
-        viewer.init();
-        viewer.update();
-    });
-}
-
-function openByUrl(){
-    var url = document.getElementById("url").value;
-    var opt = getOptions();
-    opt.SceneUrl = url;
-    // 可以添加更多的 STL URL
-    readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
-    readSTLfile(opt, 'cv2'); // 第二個 canvas
-}
-
-function openByGet(){
-    var urls = [
-        "https://s104.cycu.org/~41223252/41223252_part1.stl",
-        "https://s104.cycu.org/~41223252/41223252_part2.stl"
-    ];
-    var opt = getOptions();
-    urls.forEach((url, index) => {
-        opt.SceneUrl = url;
-        readSTLfile(opt, 'cv' + (index + 1)); // 動態生成 canvas ID
-    });
-}
-
-openByGet();
-</script>
-<p style="padding-left: 30px;">......</p>
-<p>利用 NX2312 繪製列表中零件的操作過程與說明影片如下:</p>
-<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之三</p>
-<p style="padding-left: 30px;">所完成的零件檔案下載</p>
-<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之四</p>
-<p style="padding-left: 30px;">所完成的零件檔案下載</p>
-<p style="padding-left: 30px;">......</p>
-<p>HW1 執行心得:</p>
-<p style="padding-left: 30px;">此課程讓我學到如何用<span>Solvespace</span>畫完零件圖，適應跟以往soildwork不同的操作模式，以及剪輯影片並上傳到youtube並匯入到個人的網站</p>
-<p>HW1 自評分數:</p>
-<p style="padding-left: 30px;">完成上述流程後, 請將 HW1 自評分數輸入 cad2024 自評表單中.</p>
-<h2>HW1_Exam</h2>
-<p>從<a href="http://229.cycu.org/part_modeling_projects.pdf">零件模擬練習</a>中選出零件, 隨堂進行考試.</p>
-<p>零件考試題目以 Solvespace 繪圖操作過程影片如下:</p>
-<p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
-<p style="padding-left: 30px;">所完成的零件檔案下載</p>
-<p>零件考試題目以 NX2312 繪圖操作過程影片如下:</p>
-<p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
-<p style="padding-left: 30px;">所完成的零件檔案下載</p>
-<h3>w10</h3>
-<p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/xGlQtjF1qXo?si=OPtGtxU1PEh34vhG" title="YouTube video player" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/K7CynkR7lU8?si=isLCyzf5SuOe3q9K" title="YouTube video player" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/tZn0bfv2FBY?si=6SNSUEIzLDlDINRP" title="YouTube video player" width="560"></iframe></p>
-<p>心得:過程雖然困難重重，遇到很多問題，主要是不熟悉操作，但是最後還是解決了，挺有成就感的</p>
-<script src="/static/jsc3d.js" type="text/javascript"></script>
-<div id="models"><canvas height="350" id="cv1" style="border: 1px solid;" width="350"></canvas> <canvas height="350" id="cv2" style="border: 1px solid;" width="350"></canvas> <!-- 可以添加更多的 canvas --></div>
-<div style="width: 600px; height: 55px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/> Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
-<option>Flat</option>
-<option>Point</option>
-<option>Wireframe</option>
-<option>Smooth</option>
-</select>Definition:<select id="defini" onchange="changeOption('Definition',this.value)">
-<option>Standard</option>
-<option>low</option>
-<option>high</option>
-</select></div>
-<script type="text/javascript">
-var viewers = [];
-
-function getOptions(){
-    var mc = document.getElementById("mdlClr").value;
-    var bc1 = document.getElementById("bckClr1").value;
-    var bc2 = document.getElementById("bckClr2").value;
-    var ren = document.getElementById("render").value;
-    var def = document.getElementById("defini").value;
-    return {ModelColor: mc, BackgroundColor1: bc1, BackgroundColor2: bc2, RenderMode: ren, Definition: def};
-}
-
-function readSTLfile(opt, canvasId){
-    var canvas = document.getElementById(canvasId);
-    var viewer = new JSC3D.Viewer(canvas);
-    viewer.setParameter('SceneUrl', opt.SceneUrl);
-    viewer.setParameter('InitRotationX', 0);
-    viewer.setParameter('InitRotationY', 0);
-    viewer.setParameter('InitRotationZ', 0);
-    viewer.setParameter('ModelColor', opt.ModelColor);
-    viewer.setParameter('BackgroundColor1', opt.BackgroundColor1);
-    viewer.setParameter('BackgroundColor2', opt.BackgroundColor2);
-    viewer.setParameter('RenderMode', opt.RenderMode);
-    viewer.setParameter('Definition', opt.Definition);
-    viewer.init();
-    viewer.update();
-    viewers.push(viewer); // 保存 viewer 實例
-}
-
-function changeOption(strOpt,strValue){
-    console.log("change " + strOpt + " to " + strValue);
-    viewers.forEach(viewer => {
-        viewer.setParameter(strOpt, strValue);
-        viewer.init();
-        viewer.update();
-    });
-}
-
-function openByUrl(){
-    var url = document.getElementById("url").value;
-    var opt = getOptions();
-    opt.SceneUrl = url;
-    // 可以添加更多的 STL URL
-    readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
-    readSTLfile(opt, 'cv2'); // 第二個 canvas
-}
-
-function openByGet(){
-    var urls = [
-        "https://s104.cycu.org/~41223252/w10-1.stl",
-        "https://s104.cycu.org/~41223252/w10-2.stl"
-    ];
-    var opt = getOptions();
-    urls.forEach((url, index) => {
-        opt.SceneUrl = url;
-        readSTLfile(opt, 'cv' + (index + 1)); // 動態生成 canvas ID
-    });
-}
-
-openByGet();
-</script>
-<p>零件下載:<a href="/downloads/w10-1.7z">w10-1</a>、<a href="/downloads/w10-2.7z">w10-2</a>、<a href="/downloads/w10 nx.7z">w10-1 nx</a></p><h2>w7</h2>
+<h1>week</h1>
+<h2>w7</h2>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/W0XwhyiKoxg?si=O1RKs7kZEmxme8tN" title="YouTube video player" width="560"></iframe></p>
 <p>1-1、1-2在HW1</p>
@@ -325,7 +140,8 @@ openByGet();
 <p><a href="/downloads/hw 1-10.7z">1-10.7z</a></p>
 <p><a href="/downloads/hw 1-11.7z">1-11.7z</a></p>
 <p><a href="/downloads/hw 1-12.7z">1-12.7z</a></p>
-<p><a href="/downloads/hw 1-13.7z">1-13.7z</a></p><h2>w11_hw</h2>
+<p><a href="/downloads/hw 1-13.7z">1-13.7z</a></p>
+<h2>w11_hw</h2>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/N-d7JNOCrEg?si=hEK-PrvPI4G5E5RA" title="YouTube video player" width="560"></iframe><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OEr-wiBB6Ks?si=ODt2N9mEWYkPWeDH" title="YouTube video player" width="560"></iframe></p>
 <p>下載:</p>
@@ -406,7 +222,8 @@ function openByGet(){
 
 openByGet();
 </script>
-<p><span>下載:<a href="/downloads/w11_Platine-Batteur2-1.7z">Platine-Batteur-solvespace.7z</a>、<a href="/downloads/w11_Platine Batteur2-2.7z">Platine Batteur-nx.7z</a></span></p><h2>w12</h2>
+<p><span>下載:<a href="/downloads/w11_Platine-Batteur2-1.7z">Platine-Batteur-solvespace.7z</a>、<a href="/downloads/w11_Platine Batteur2-2.7z">Platine Batteur-nx.7z</a></span></p>
+<h2>w12</h2>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cJGuO_PPfcU?si=VL8MsJzgoX81KeBB" title="YouTube video player" width="560"></iframe></p>
 <p>零件下載:<a href="/downloads/w12.7z">w12.7z</a></p>
@@ -482,8 +299,132 @@ function openByGet(){
 }
 
 openByGet();
-</script><h2>w13</h2>
+</script>
+<h2>w13</h2>
 <h2>w14</h2>
+<h1>HW1</h1>
+<p>Homework 1 (10%):</p>
+<p style="padding-left: 30px;">利用 Solvespace 與 NX2312 建立<span> </span><a href="https://mde.tw/cad2024/content/Parts.html">Parts</a><span> </span>頁面中的零件</p>
+<p style="padding-left: 30px;">其他<a href="http://229.cycu.org/part_modeling_projects.pdf">零件模擬練習</a></p>
+<hr/>
+<p>利用 Solvespace 繪製列表中零件的操作過程與說明影片如下:</p>
+<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之一</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4fcy9wuJNrA?si=6_FYK2ohnhGrvVHJ" title="YouTube video player" width="560"></iframe></p>
+<p><img alt="" height="315" src="/images/螢幕擷取畫面 2024-10-09 223251.png" width="536"/></p>
+<p style="padding-left: 30px;">所完成的零件檔案下載:<a href="/downloads/hw1作業1-1零件檔.7z">點這裡</a></p>
+<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之二</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Mr26WYJzk7s?si=4DzdM_9XD1mV6iqv" title="YouTube video player" width="560"></iframe></p>
+<p style="padding-left: 30px;">截圖畫面:</p>
+<p style="padding-left: 30px;"><img alt="" height="313" src="/images/螢幕擷取畫面 2024-10-23 012547.png" width="395"/></p>
+<p style="padding-left: 30px;">所完成的零件檔案下載:<a href="/downloads/作業2.7z">點這裡</a></p>
+<script src="/static/jsc3d.js" type="text/javascript"></script>
+<div id="models"><canvas height="350" id="cv1" style="border: 1px solid;" width="350"></canvas> <canvas height="350" id="cv2" style="border: 1px solid;" width="350"></canvas> <!-- 可以添加更多的 canvas --></div>
+<div style="width: 600px; height: 55px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/> Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
+<option>Flat</option>
+<option>Point</option>
+<option>Wireframe</option>
+<option>Smooth</option>
+</select>Definition:<select id="defini" onchange="changeOption('Definition',this.value)">
+<option>Standard</option>
+<option>low</option>
+<option>high</option>
+</select></div>
+<script type="text/javascript">
+var viewers = [];
+
+function getOptions(){
+    var mc = document.getElementById("mdlClr").value;
+    var bc1 = document.getElementById("bckClr1").value;
+    var bc2 = document.getElementById("bckClr2").value;
+    var ren = document.getElementById("render").value;
+    var def = document.getElementById("defini").value;
+    return {ModelColor: mc, BackgroundColor1: bc1, BackgroundColor2: bc2, RenderMode: ren, Definition: def};
+}
+
+function readSTLfile(opt, canvasId){
+    var canvas = document.getElementById(canvasId);
+    var viewer = new JSC3D.Viewer(canvas);
+    viewer.setParameter('SceneUrl', opt.SceneUrl);
+    viewer.setParameter('InitRotationX', 0);
+    viewer.setParameter('InitRotationY', 0);
+    viewer.setParameter('InitRotationZ', 0);
+    viewer.setParameter('ModelColor', opt.ModelColor);
+    viewer.setParameter('BackgroundColor1', opt.BackgroundColor1);
+    viewer.setParameter('BackgroundColor2', opt.BackgroundColor2);
+    viewer.setParameter('RenderMode', opt.RenderMode);
+    viewer.setParameter('Definition', opt.Definition);
+    viewer.init();
+    viewer.update();
+    viewers.push(viewer); // 保存 viewer 實例
+}
+
+function changeOption(strOpt,strValue){
+    console.log("change " + strOpt + " to " + strValue);
+    viewers.forEach(viewer => {
+        viewer.setParameter(strOpt, strValue);
+        viewer.init();
+        viewer.update();
+    });
+}
+
+function openByUrl(){
+    var url = document.getElementById("url").value;
+    var opt = getOptions();
+    opt.SceneUrl = url;
+    // 可以添加更多的 STL URL
+    readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
+    readSTLfile(opt, 'cv2'); // 第二個 canvas
+}
+
+function openByGet(){
+    var urls = [
+        "https://s104.cycu.org/~41223252/1-1.stl",
+        "https://s104.cycu.org/~41223252/1-2.stl"
+    ];
+    var opt = getOptions();
+    urls.forEach((url, index) => {
+        opt.SceneUrl = url;
+        readSTLfile(opt, 'cv' + (index + 1)); // 動態生成 canvas ID
+    });
+}
+
+openByGet();
+</script>
+<p>利用 NX2312 繪製列表中零件的操作過程與說明影片如下:</p>
+<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之三</p>
+<p style="padding-left: 30px;">所完成的零件檔案下載</p>
+<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之四</p>
+<p style="padding-left: 30px;">所完成的零件檔案下載</p>
+<p style="padding-left: 30px;">......</p>
+<p>HW1 執行心得:</p>
+<p style="padding-left: 30px;">此課程讓我學到如何用<span>Solvespace</span>畫完零件圖，適應跟以往soildwork不同的操作模式，以及剪輯影片並上傳到youtube並匯入到個人的網站</p>
+<p>HW1 自評分數:</p>
+<p style="padding-left: 30px;">完成上述流程後, 請將 HW1 自評分數輸入 cad2024 自評表單中.</p><h2>HW1_Exam</h2>
+<p>從<a href="http://229.cycu.org/part_modeling_projects.pdf">零件模擬練習</a>中選出零件, 隨堂進行考試.</p>
+<p>零件考試題目以 Solvespace 繪圖操作過程影片如下:</p>
+<p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
+<p style="padding-left: 30px;">所完成的零件檔案下載</p>
+<p>零件考試題目以 NX2312 繪圖操作過程影片如下:</p>
+<p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
+<p style="padding-left: 30px;">所完成的零件檔案下載</p>
+<h3>w10</h3>
+<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/xGlQtjF1qXo?si=OPtGtxU1PEh34vhG" title="YouTube video player" width="560"></iframe></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/K7CynkR7lU8?si=isLCyzf5SuOe3q9K" title="YouTube video player" width="560"></iframe></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/tZn0bfv2FBY?si=6SNSUEIzLDlDINRP" title="YouTube video player" width="560"></iframe></p>
+<p>心得:過程雖然困難重重，遇到很多問題，主要是不熟悉操作，但是最後還是解決了，挺有成就感的</p>
+<div id="models"><canvas height="350" id="cv1" style="border: 1px solid;" width="350"></canvas><span> </span><canvas height="350" id="cv2" style="border: 1px solid;" width="350"></canvas></div>
+<div style="width: 600px; height: 55px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/><span> </span>Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/><span> </span>Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/>Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
+<option>Flat</option>
+<option>Point</option>
+<option>Wireframe</option>
+<option>Smooth</option>
+</select>Definition:<select id="defini" onchange="changeOption('Definition',this.value)">
+<option>Standard</option>
+<option>low</option>
+<option>high</option>
+</select></div>
+<p>零件下載:<a href="/downloads/w10-1.7z">w10-1</a>、<a href="/downloads/w10-2.7z">w10-2</a>、<a href="/downloads/w10 nx.7z">w10-1 nx</a></p>
 <h1>HW2</h1>
 <p>Homework 2 (10%):</p>
 <p style="padding-left: 30px;">利用 Solvespace 與 NX 建立 <a href="https://mde.tw/cad2024/content/BonW.html">Balance on Wheels</a> 組立件</p>
@@ -497,7 +438,8 @@ openByGet();
 <p>HW2 執行心得:</p>
 <p style="padding-left: 30px;">......</p>
 <p>HW2 自評分數:</p>
-<p style="padding-left: 30px;">完成上述流程後, 請將 HW2 自評分數輸入 cad2024 自評表單中.</p><h2>HW2_Exam</h2>
+<p style="padding-left: 30px;">完成上述流程後, 請將 HW2 自評分數輸入 cad2024 自評表單中.</p>
+<h2>HW2_Exam</h2>
 <p>與 HW2 內容相近的組立件題目, 隨堂進行考試.</p>
 <p>零件與組立件考試題目以 Solvespace 繪圖操作過程影片如下:</p>
 <p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
@@ -505,7 +447,7 @@ openByGet();
 <p>零件與組立件考試題目以 NX 繪圖操作過程影片如下:</p>
 <p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
 <p style="padding-left: 30px;">所完成的零件與組立件檔案下載</p>
-<br/><img alt="" height="214" src="/images/螢幕擷取畫面 2025-01-13 190059.png" width="400"/>w16 part1
+<p><br/><img alt="" height="214" src="/images/螢幕擷取畫面 2025-01-13 190059.png" width="400"/>w16 part1</p>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/6-sPohIsm1g?si=HOAh91NjqcMc9c4y" title="YouTube video player" width="560"></iframe></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/IY6-EPTkcHM?si=_6SmOb2k_vA6zzOf" title="YouTube video player" width="560"></iframe></p>
@@ -586,7 +528,8 @@ openByGet();
 <p>組合:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cuDYQjsqOk0?si=E5uXd9gXS4YVX8B7" title="YouTube video player" width="560"></iframe></p>
 <p>下載:<a href="/downloads/41223252_w16_exam1.7z">w16_exam1.7z</a></p>
-<p><img alt="" height="112" src="/images/螢幕擷取畫面 2025-01-13 190046.png" width="400"/></p><h3>w16 part1</h3>
+<p><img alt="" height="112" src="/images/螢幕擷取畫面 2025-01-13 190046.png" width="400"/></p>
+<h3>w16 exam1</h3>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/6-sPohIsm1g?si=HOAh91NjqcMc9c4y" title="YouTube video player" width="560"></iframe></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/IY6-EPTkcHM?si=_6SmOb2k_vA6zzOf" title="YouTube video player" width="560"></iframe></p>
@@ -669,7 +612,8 @@ openByGet();
 <p>下載:<a href="/downloads/41223252_w16_exam1.7z">w16_exam1.7z</a></p>
 <p><img alt="" height="112" src="/images/螢幕擷取畫面 2025-01-13 190046.png" width="400"/></p>
 <p><img alt="" height="214" src="/images/螢幕擷取畫面 2025-01-13 190059.png" width="400"/></p>
-<p></p><h2>HW3_Exam</h2>
+<p><img alt="" height="146" src="/images/螢幕擷取畫面 2025-01-13 190113.png" width="400"/></p><h1>HW3</h1>
+<h2>HW3_Exam</h2>
 <p>與 HW3 內容相近的模擬場景題目, 隨堂進行考試.</p>
 <p>建立模擬場景操作過程影片如下:</p>
 <p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
@@ -683,7 +627,7 @@ openByGet();
 <p style="padding-left: 30px;">......</p>
 <p>HW3 自評分數:</p>
 <p style="padding-left: 30px;">完成上述流程後, 請將 HW3 自評分數輸入 cad2024 自評表單中.</p>
-<h3>w16 part2</h3>
+<h3>w16 exam2</h3>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/s5IvdCFrsuM?si=OyOFQLnr1Fnz0asI" title="YouTube video player" width="560"></iframe></p>
 <p></p>
@@ -787,7 +731,8 @@ openByGet();
 <h3>w16 part3</h3>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Vnf9PN3_WBI?si=iTNgKJiF9E5ZIZDE" title="YouTube video player" width="560"></iframe></p>
-<p>下載:<a href="/downloads/41223252_w16_exam3.7z">41223252_w16_exam3.7z</a></p><h1>pinball</h1>
+<p>下載:<a href="/downloads/41223252_w16_exam3.7z">41223252_w16_exam3.7z</a></p>
+<h1>pinball</h1>
 <h1>Final Report</h1>
 <p>期末口頭與書面專題報告 (30%)</p>
 <p>期末口頭專題報告影片:</p>
